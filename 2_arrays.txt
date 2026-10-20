@@ -1,0 +1,270 @@
+// ===== ArrayDemo.java =====
+import java.util.Arrays;
+
+public class ArrayDemo {
+    public static void main(String[] args) {
+
+        // 1. Declaration and initialization
+        int[] marks = {85, 72, 90, 65, 78};
+        int[] scores = new int[5];
+
+        // 2. Accessing and modifying elements
+        System.out.println("First element: " + marks[0]);
+        marks[1] = 80;
+        System.out.println("Length of array: " + marks.length);
+
+        // 3. for loop
+        System.out.println("\nUsing for loop:");
+        for (int i = 0; i < marks.length; i++) {
+            System.out.println("marks[" + i + "] = " + marks[i]);
+        }
+
+        // 4. for-each loop
+        System.out.println("\nUsing for-each loop:");
+        for (int m : marks) {
+            System.out.print(m + " ");
+        }
+        System.out.println();
+
+        // 5. Sum, average, max, min
+        int sum = 0, max = marks[0], min = marks[0];
+        for (int m : marks) {
+            sum += m;
+            if (m > max) max = m;
+            if (m < min) min = m;
+        }
+        System.out.println("\nSum = " + sum);
+        System.out.println("Average = " + (double) sum / marks.length);
+        System.out.println("Max = " + max + ", Min = " + min);
+
+        // 6. Sorting and searching
+        Arrays.sort(marks);
+        System.out.println("\nSorted: " + Arrays.toString(marks));
+        int index = Arrays.binarySearch(marks, 78);
+        System.out.println("78 found at index: " + index);
+
+        // 7. Copying and filling
+        int[] copy = Arrays.copyOf(marks, marks.length);
+        Arrays.fill(scores, 10);
+        System.out.println("Copy: " + Arrays.toString(copy));
+        System.out.println("Filled: " + Arrays.toString(scores));
+
+        // 8. Two-dimensional array
+        int[][] matrix = {
+            {1, 2, 3},
+            {4, 5, 6},
+            {7, 8, 9}
+        };
+        System.out.println("\n2D array:");
+        for (int i = 0; i < matrix.length; i++) {
+            for (int j = 0; j < matrix[i].length; j++) {
+                System.out.print(matrix[i][j] + " ");
+            }
+            System.out.println();
+        }
+
+        // 9. String array
+        String[] days = {"Mon", "Tue", "Wed"};
+        System.out.println("\nDays: " + Arrays.toString(days));
+    }
+}
+
+
+// ===== EvenOddArray.java =====
+import java.util.Scanner;
+
+public class EvenOddArray {
+    public static void main(String args[]) {
+        Scanner sc = new Scanner(System.in);
+        int a[], i, even = 0, odd = 0, n;
+
+        System.out.println("Enter number of array elements: ");
+        n = sc.nextInt();
+
+        a = new int[n];                      // create the array after n is known
+
+        System.out.println("Enter Array Elements : ");
+        for (i = 0; i < n; i++) {
+            a[i] = sc.nextInt();
+        }
+
+        for (i = 0; i < n; i++) {
+            if (a[i] % 2 == 0)
+                even++;
+            else
+                odd++;
+        }
+
+        System.out.println("Number of even elements = " + even);
+        System.out.println("Number of odd elements = " + odd);
+
+        sc.close();
+    }
+}
+
+
+// ===== BubbleSort.java =====
+import java.util.Arrays;
+
+public class BubbleSort {
+    public static void main(String[] args) {
+        int[] a = {64, 34, 25, 12, 22};
+        for (int i = 0; i < a.length - 1; i++) {
+            for (int j = 0; j < a.length - i - 1; j++) {
+                if (a[j] > a[j + 1]) {
+                    int temp = a[j];
+                    a[j] = a[j + 1];
+                    a[j + 1] = temp;
+                }
+            }
+        }
+        System.out.println(Arrays.toString(a));   // [12, 22, 25, 34, 64]
+    }
+}
+
+
+// ===== EvenOddCount.java =====
+public class EvenOddCount {
+    public static void main(String[] args) {
+        int[] a = {1, 2, 3, 4, 5, 6, 7};
+        int even = 0, odd = 0;
+        for (int x : a) {
+            if (x % 2 == 0) even++;
+            else odd++;
+        }
+        System.out.println("Even = " + even + ", Odd = " + odd);
+    }
+}
+
+
+// ===== LinearSearch.java =====
+public class LinearSearch {
+    public static void main(String[] args) {
+        int[] a = {4, 9, 2, 7, 5};
+        int key = 7, pos = -1;
+        for (int i = 0; i < a.length; i++) {
+            if (a[i] == key) {
+                pos = i;
+                break;
+            }
+        }
+        System.out.println(pos == -1 ? "Not found" : "Found at index " + pos);
+    }
+}
+
+
+// ===== MatrixAddition.java =====
+public class MatrixAddition {
+    public static void main(String[] args) {
+        int[][] a = {{1, 2}, {3, 4}};
+        int[][] b = {{5, 6}, {7, 8}};
+        int[][] sum = new int[2][2];
+        for (int i = 0; i < 2; i++) {
+            for (int j = 0; j < 2; j++) {
+                sum[i][j] = a[i][j] + b[i][j];
+                System.out.print(sum[i][j] + " ");
+            }
+            System.out.println();
+        }
+    }
+}
+
+
+// ===== MergeArrays.java =====
+import java.util.Arrays;
+
+public class MergeArrays {
+    public static void main(String[] args) {
+        int[] a = {1, 2, 3};
+        int[] b = {4, 5};
+        int[] c = new int[a.length + b.length];
+        System.arraycopy(a, 0, c, 0, a.length);
+        System.arraycopy(b, 0, c, a.length, b.length);
+        System.out.println(Arrays.toString(c));   // [1, 2, 3, 4, 5]
+    }
+}
+
+
+// ===== PalindromeArray.java =====
+public class PalindromeArray {
+    public static void main(String[] args) {
+        int[] a = {1, 2, 3, 2, 1};
+        boolean isPal = true;
+        for (int i = 0; i < a.length / 2; i++) {
+            if (a[i] != a[a.length - 1 - i]) {
+                isPal = false;
+                break;
+            }
+        }
+        System.out.println(isPal ? "Palindrome" : "Not a palindrome");
+    }
+}
+
+
+// ===== RemoveDuplicates.java =====
+import java.util.Arrays;
+
+public class RemoveDuplicates {
+    public static void main(String[] args) {
+        int[] a = {1, 1, 2, 2, 3, 4, 4};
+        int j = 0;
+        for (int i = 1; i < a.length; i++) {
+            if (a[i] != a[j]) {
+                j++;
+                a[j] = a[i];
+            }
+        }
+        int[] result = Arrays.copyOf(a, j + 1);
+        System.out.println(Arrays.toString(result));   // [1, 2, 3, 4]
+    }
+}
+
+
+// ===== ReverseArray.java =====
+public class ReverseArray {
+    public static void main(String[] args) {
+        int[] a = {1, 2, 3, 4, 5};
+        for (int i = 0, j = a.length - 1; i < j; i++, j--) {
+            int temp = a[i];
+            a[i] = a[j];
+            a[j] = temp;
+        }
+        for (int x : a) System.out.print(x + " ");   // 5 4 3 2 1
+    }
+}
+
+
+// ===== SecondLargest.java =====
+public class SecondLargest {
+    public static void main(String[] args) {
+        int[] a = {12, 35, 1, 10, 34, 1};
+        int first = Integer.MIN_VALUE, second = Integer.MIN_VALUE;
+        for (int x : a) {
+            if (x > first) {
+                second = first;
+                first = x;
+            } else if (x > second && x != first) {
+                second = x;
+            }
+        }
+        System.out.println("Second largest = " + second);   // 34
+    }
+}
+
+
+// ===== Transpose.java =====
+public class Transpose {
+    public static void main(String[] args) {
+        int[][] a = {{1, 2, 3}, {4, 5, 6}};
+        int[][] t = new int[3][2];
+        for (int i = 0; i < 2; i++)
+            for (int j = 0; j < 3; j++)
+                t[j][i] = a[i][j];
+        for (int[] row : t) {
+            for (int x : row) System.out.print(x + " ");
+            System.out.println();
+        }
+    }
+}
+
+

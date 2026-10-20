@@ -1,0 +1,72 @@
+<!-- Save as index.html and open in a browser -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>My First Webpage</title>
+
+  <!-- CSS -->
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f0f4f8;
+      text-align: center;
+      margin: 0;
+      padding: 40px;
+    }
+    h1 { color: #2c3e50; }
+    .box {
+      background: white;
+      width: 320px;
+      margin: 20px auto;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+    }
+    input { padding: 8px; width: 200px; margin-bottom: 10px; }
+    button {
+      padding: 8px 16px;
+      background-color: #3498db;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    button:hover { background-color: #217dbb; }
+    #message { margin-top: 15px; font-weight: bold; color: #27ae60; }
+  </style>
+</head>
+<body>
+
+  <!-- HTML content -->
+  <h1>Welcome to My Webpage</h1>
+
+  <div class="box">
+    <p>Enter your name:</p>
+    <input type="text" id="nameInput" placeholder="Your name">
+    <br>
+    <button onclick="greet()">Greet Me</button>
+    <button onclick="changeColor()">Change Background</button>
+    <p id="message"></p>
+  </div>
+
+  <!-- JavaScript -->
+  <script>
+    function greet() {
+      var name = document.getElementById("nameInput").value;
+      if (name === "") {
+        document.getElementById("message").innerText = "Please enter your name!";
+      } else {
+        document.getElementById("message").innerText = "Hello, " + name + "! Welcome.";
+      }
+    }
+
+    function changeColor() {
+      var colors = ["#f0f4f8", "#ffeaa7", "#dfe6e9", "#fab1a0", "#a29bfe"];
+      var random = Math.floor(Math.random() * colors.length);
+      document.body.style.backgroundColor = colors[random];
+    }
+  </script>
+
+</body>
+</html>

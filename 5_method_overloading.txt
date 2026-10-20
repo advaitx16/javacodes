@@ -1,0 +1,67 @@
+// ===== AreaOverloading.java =====
+class Shape {
+
+    // Area of circle
+    double area(double radius) {
+        return Math.PI * radius * radius;
+    }
+
+    // Area of rectangle
+    int area(int length, int breadth) {
+        return length * breadth;
+    }
+
+    // Area of triangle
+    double area(double base, double height) {
+        return 0.5 * base * height;
+    }
+}
+
+public class AreaOverloading {
+    public static void main(String[] args) {
+        Shape s = new Shape();
+
+        double circle = s.area(5.0);
+        int rectangle = s.area(10, 4);
+        double triangle = s.area(6.0, 3.0);
+
+        System.out.println("Area of circle    = " + circle);
+        System.out.println("Area of rectangle = " + rectangle);
+        System.out.println("Area of triangle  = " + triangle);
+    }
+}
+
+
+// ===== AreaInput.java =====
+import java.util.Scanner;
+
+class Shape {
+    double area(double r) { return Math.PI * r * r; }
+    int area(int l, int b) { return l * b; }
+    double area(double b, double h) { return 0.5 * b * h; }
+}
+
+public class AreaInput {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        Shape s = new Shape();
+
+        System.out.print("Enter radius of circle: ");
+        double r = sc.nextDouble();
+        System.out.println("Area of circle = " + s.area(r));
+
+        System.out.print("Enter length and breadth of rectangle: ");
+        int l = sc.nextInt();
+        int b = sc.nextInt();
+        System.out.println("Area of rectangle = " + s.area(l, b));
+
+        System.out.print("Enter base and height of triangle: ");
+        double base = sc.nextDouble();
+        double h = sc.nextDouble();
+        System.out.println("Area of triangle = " + s.area(base, h));
+
+        sc.close();
+    }
+}
+
+

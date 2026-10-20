@@ -1,0 +1,46 @@
+// ===== AbstractDemo.java =====
+abstract class Shape {
+    String color = "Red";
+
+    // Abstract method: no body, subclasses must implement it
+    abstract double area();
+
+    // Concrete method
+    void showColor() {
+        System.out.println("Color: " + color);
+    }
+}
+
+class Circle extends Shape {
+    double r;
+    Circle(double r) { this.r = r; }
+
+    double area() {
+        return Math.PI * r * r;
+    }
+}
+
+class Rectangle extends Shape {
+    double l, b;
+    Rectangle(double l, double b) { this.l = l; this.b = b; }
+
+    double area() {
+        return l * b;
+    }
+}
+
+public class AbstractDemo {
+    public static void main(String[] args) {
+        // Shape s = new Shape();   // ERROR: cannot instantiate an abstract class
+
+        Shape c = new Circle(5);
+        Shape r = new Rectangle(10, 4);
+
+        c.showColor();
+        System.out.println("Area of circle    = " + c.area());
+        r.showColor();
+        System.out.println("Area of rectangle = " + r.area());
+    }
+}
+
+

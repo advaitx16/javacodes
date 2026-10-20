@@ -1,0 +1,45 @@
+// ===== ExceptionDemo.java =====
+public class ExceptionDemo {
+
+    // 'throws' declares that this method may pass an exception to its caller
+    static void checkAge(int age) throws Exception {
+        if (age < 18) {
+            // 'throw' actually raises the exception
+            throw new Exception("Age must be 18 or above");
+        }
+        System.out.println("Eligible to vote");
+    }
+
+    public static void main(String[] args) {
+
+        // 1. try-catch-finally with a built-in exception
+        try {
+            int a = 10, b = 0;
+            int result = a / b;
+            System.out.println(result);
+        } catch (ArithmeticException e) {
+            System.out.println("Caught: " + e.getMessage());
+        } finally {
+            System.out.println("Finally block always runs\n");
+        }
+
+        // 2. Array index exception
+        try {
+            int[] arr = new int[3];
+            arr[5] = 100;
+        } catch (ArrayIndexOutOfBoundsException e) {
+            System.out.println("Caught: " + e);
+        }
+
+        // 3. throw and throws together
+        try {
+            checkAge(15);
+        } catch (Exception e) {
+            System.out.println("Caught: " + e.getMessage());
+        } finally {
+            System.out.println("Done checking age");
+        }
+    }
+}
+
+
